@@ -1,3 +1,8 @@
+# import currency_roulette_game,guess_game,memory_game
+from memory_game import  MemoryGame
+from currency_roulette_game import CurrencyRouletteGame
+from guess_game import GuessGame
+
 def welcome(name):
     print(f"""
         Hello {name} and welcome to the World of Games (WoG).
@@ -34,3 +39,14 @@ def load_game():
                 print("Input out of range. Please try again.")
         except ValueError:
             print("Invalid input. Please enter a valid number(1, 2, 3, 4, 5).")
+
+    match game:
+        case 1:
+            memory_game = MemoryGame(game_difficulty)
+            memory_game.play()
+        case 2:
+            guess_game = GuessGame(game_difficulty)
+            guess_game.play()
+        case 3:
+            currency_roulette_game = CurrencyRouletteGame(game_difficulty)
+            currency_roulette_game.play()
