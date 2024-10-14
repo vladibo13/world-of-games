@@ -2,6 +2,8 @@
 from memory_game import  MemoryGame
 from currency_roulette_game import CurrencyRouletteGame
 from guess_game import GuessGame
+from score import add_score
+
 
 def welcome(name):
     print(f"""
@@ -10,6 +12,7 @@ def welcome(name):
         """)
 
 def load_game():
+    player_win = False
     while True:
         try:
             game = int(input(
@@ -43,10 +46,17 @@ def load_game():
     match game:
         case 1:
             memory_game = MemoryGame(game_difficulty)
-            memory_game.play()
+            player_win = memory_game.play()
         case 2:
             guess_game = GuessGame(game_difficulty)
-            guess_game.play()
+            player_win = guess_game.play()
         case 3:
             currency_roulette_game = CurrencyRouletteGame(game_difficulty)
-            currency_roulette_game.play()
+            player_win = currency_roulette_game.play()
+
+    if player_win:
+        add_score(game_difficulty)
+        print("Player won the game")
+        return
+
+    print("Player lose the game")

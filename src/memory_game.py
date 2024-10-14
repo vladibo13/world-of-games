@@ -1,6 +1,7 @@
 import random
 import os
 from time import sleep
+from utils import clear_screen
 
 def is_list_equal(list_generated_sequence, list_from_user_input):
     return list_generated_sequence == list_from_user_input
@@ -18,7 +19,7 @@ class MemoryGame:
             if len(numbers) == self.difficulty:
                 break  # Exit the loop when len numbers equals to difficulty
             else:
-                user_input = input(f"Enter {self.difficulty} numbers one by one ").strip().lower()
+                user_input = input(f"Try to guess {self.difficulty} numbers, enter one by one ").strip().lower()
             try:
                 number = int(user_input)  # Validate if input is a number
                 numbers.append(number)
@@ -30,6 +31,7 @@ class MemoryGame:
         list_sequence = self.generate_sequence()
         print(list_sequence)
         sleep(0.7)
+        clear_screen()
         print('*' * 30)
         list_user_input = self.get_list_from_user()
         return is_list_equal(list_sequence, list_user_input)
