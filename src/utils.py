@@ -1,6 +1,6 @@
 import os
 
-SCORES_FILE_NAME = 'files/Scores.txt'
+SCORES_FILE_NAME = 'src/files/scores.txt'
 BAD_RETURN_CODE = -1
 
 def clear_screen():

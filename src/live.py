@@ -43,16 +43,15 @@ def load_game():
         except ValueError:
             print("Invalid input. Please enter a valid number(1, 2, 3, 4, 5).")
 
-    match game:
-        case 1:
-            memory_game = MemoryGame(game_difficulty)
-            player_win = memory_game.play()
-        case 2:
-            guess_game = GuessGame(game_difficulty)
-            player_win = guess_game.play()
-        case 3:
-            currency_roulette_game = CurrencyRouletteGame(game_difficulty)
-            player_win = currency_roulette_game.play()
+    if game == 1:
+        memory_game = MemoryGame(game_difficulty)
+        player_win = memory_game.play()
+    elif game == 2:
+        guess_game = GuessGame(game_difficulty)
+        player_win = guess_game.play()
+    else:
+        currency_roulette_game = CurrencyRouletteGame(game_difficulty)
+        player_win = currency_roulette_game.play()
 
     if player_win:
         add_score(game_difficulty)
