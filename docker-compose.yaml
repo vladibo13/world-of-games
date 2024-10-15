@@ -1,8 +1,7 @@
-version: '3.9'
+version: "3.9"
 
 services:
   web:
     image: vladibo/world-of-games:latest
-    build: .
     ports:
       - "4999:4999"
