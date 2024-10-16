@@ -39,7 +39,7 @@ pipeline {
                     echo "deploying the image to ec2"
                     dockerCmd = 'docker run -p 4999:4999 -d vladibo/world-of-games:latest'
                     dockerComposeCommand = 'docker-compose -f docker-compose.yaml up --detach'
-                    shellCmd = 'bash ./ec2-script.sh'
+                    shellCmd = 'bash ./world-of-games/ec2-script.sh'
                     sshagent(['aws-ec2-key']) {
                         sh "scp docker-compose.yaml src/files/scores.txt ec2-script.sh ec2-user@54.81.204.137:/home/ec2-user/world-of-games"
                         sh "ssh -o StrictHostKeyChecking=no ec2-user@54.81.204.137 ${shellCmd}"
