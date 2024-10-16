@@ -1,7 +1,7 @@
 version: "3.9"
 
 services:
-  web:
+  world-of-games:
     image: vladibo/world-of-games:latest
     ports:
       - "4999:4999"
